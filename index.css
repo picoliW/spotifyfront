@@ -402,3 +402,173 @@ audio {
     transform: rotate(360deg);
   }
 }
+
+
+/* Add this to your CSS file or style section */
+
+/* Base styles */
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Page header */
+.text-2xl.font-bold.mb-6 {
+  font-size: 2rem;
+  color: #191414; /* Spotify black */
+  text-align: center;
+  margin-bottom: 2.5rem;
+  position: relative;
+}
+
+.text-2xl.font-bold.mb-6::after {
+  content: '';
+  display: block;
+  width: 80px;
+  height: 4px;
+  background: #1DB954; /* Spotify green */
+  margin: 0.5rem auto 0;
+  border-radius: 2px;
+}
+
+/* Question cards */
+.bg-white.p-4.rounded.shadow {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e5e7eb;
+  transition: all 0.3s ease;
+}
+
+.bg-white.p-4.rounded.shadow:hover {
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+}
+
+/* Question text */
+.block.text-lg.font-medium.text-gray-700.mb-2 {
+  font-size: 1.125rem;
+  color: #191414;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+}
+
+/* Input fields */
+.mt-1.block.w-full.rounded-md.border-gray-300.shadow-sm {
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  padding: 0.75rem;
+  width: 100%;
+  font-size: 1rem;
+  transition: border-color 0.3s;
+}
+
+.mt-1.block.w-full.rounded-md.border-gray-300.shadow-sm:focus {
+  outline: none;
+  border-color: #1DB954;
+  box-shadow: 0 0 0 3px rgba(29, 185, 84, 0.1);
+}
+
+/* Radio and checkbox options */
+.space-y-2.mt-2 {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 0.75rem;
+}
+
+.flex.items-center {
+  background: #f8fafc;
+  padding: 0.75rem;
+  border-radius: 8px;
+  transition: all 0.2s;
+}
+
+.flex.items-center:hover {
+  background: #f1f5f9;
+}
+
+.h-4.w-4.text-green-600.focus:ring-green-500.border-gray-300 {
+  width: 1.25rem;
+  height: 1.25rem;
+  accent-color: #1DB954;
+  margin-right: 0.75rem;
+}
+
+.ml-3.block.text-sm.font-medium.text-gray-700 {
+  color: #334155;
+  font-size: 0.95rem;
+}
+
+/* Submit button */
+.justify-end {
+  margin-top: 2.5rem;
+}
+
+.px-4.py-2.bg-green-600.text-white.rounded.hover\:bg-green-700 {
+  background-color: #1DB954;
+  color: white;
+  border: none;
+  border-radius: 50px;
+  padding: 0.75rem 2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.px-4.py-2.bg-green-600.text-white.rounded.hover\:bg-green-700:hover {
+  background-color: #1aa34a;
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.1);
+  transform: translateY(-1px);
+}
+
+.px-4.py-2.bg-green-600.text-white.rounded.hover\:bg-green-700:active {
+  transform: translateY(0);
+}
+
+/* Loading state */
+.opacity-50.cursor-not-allowed {
+  opacity: 0.7;
+  position: relative;
+}
+
+.opacity-50.cursor-not-allowed::after {
+  content: '';
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: white;
+  animation: spin 1s ease-in-out infinite;
+  margin-left: 8px;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Optional text */
+.placeholder\:\(Optional\)::placeholder {
+  color: #94a3b8;
+  font-style: italic;
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+  .space-y-2.mt-2 {
+    grid-template-columns: 1fr;
+  }
+  
+  .text-2xl.font-bold.mb-6 {
+    font-size: 1.5rem;
+  }
+}
