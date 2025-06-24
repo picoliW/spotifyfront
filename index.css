@@ -685,4 +685,47 @@ audio {
   font-size: 0.85rem;
 }
 
-/* Adicione isso ao final do seu arquivo CSS */
+/* Estilos para os cards de atividade */
+.activity-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.activity-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  border-radius: 8px;
+  background-color: #f8f9fa;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+  text-align: center;
+}
+
+.activity-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  background-color: #e9ecef;
+}
+
+.activity-card.selected {
+  border-color: #1db954;
+  background-color: #e6f7ed;
+  box-shadow: 0 0 0 3px rgba(29, 185, 84, 0.2);
+}
+
+.activity-emoji {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.activity-name {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #333;
+}

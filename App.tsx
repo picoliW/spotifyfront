@@ -189,6 +189,41 @@ const QuestionsPage = () => {
     },
   ];
 
+  const activityData = [
+    {
+      name: "trabalhando",
+      emoji: "💼",
+      description: "Trabalhando",
+    },
+    {
+      name: "estudando",
+      emoji: "📚",
+      description: "Estudando",
+    },
+    {
+      name: "exercitando",
+      emoji: "🏋️",
+      description: "Exercitando",
+    },
+    {
+      name: "relaxando",
+      emoji: "🧘",
+      description: "Relaxando",
+    },
+    {
+      name: "socializando",
+      emoji: "👥",
+      description: "Socializando",
+    },
+  ];
+
+  const handleActivitySelect = (activity: string) => {
+    setAnswers((prev) => ({
+      ...prev,
+      currentActivity: activity,
+    }));
+  };
+
   useEffect(() => {
     const urlParams = new URLSearchParams(window.location.search);
     const accessToken = urlParams.get("access_token");
@@ -334,6 +369,25 @@ const QuestionsPage = () => {
                       className="genre-image"
                     />
                     <span className="genre-name">{genre.name}</span>
+                  </div>
+                ))}
+              </div>
+            ) : question.id === "currentActivity" ? (
+              <div className="activity-grid">
+                {activityData.map((activity) => (
+                  <div
+                    key={activity.name}
+                    className={`activity-card ${
+                      answers.currentActivity === activity.name
+                        ? "selected"
+                        : ""
+                    }`}
+                    onClick={() => handleActivitySelect(activity.name)}
+                  >
+                    <span className="activity-emoji">{activity.emoji}</span>
+                    <span className="activity-name">
+                      {activity.description}
+                    </span>
                   </div>
                 ))}
               </div>
