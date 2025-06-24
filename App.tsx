@@ -191,27 +191,27 @@ const QuestionsPage = () => {
 
   const activityData = [
     {
-      name: "trabalhando",
+      name: "Trabalhando",
       emoji: "💼",
       description: "Trabalhando",
     },
     {
-      name: "estudando",
+      name: "Estudando",
       emoji: "📚",
       description: "Estudando",
     },
     {
-      name: "exercitando",
+      name: "Exercitando",
       emoji: "🏋️",
       description: "Exercitando",
     },
     {
-      name: "relaxando",
+      name: "Relaxando",
       emoji: "🧘",
       description: "Relaxando",
     },
     {
-      name: "socializando",
+      name: "Socializando",
       emoji: "👥",
       description: "Socializando",
     },
@@ -219,27 +219,27 @@ const QuestionsPage = () => {
 
   const moodData = [
     {
-      name: "feliz",
+      name: "Feliz",
       emoji: "😊",
       description: "Feliz",
     },
     {
-      name: "triste",
+      name: "Triste",
       emoji: "😢",
       description: "Triste",
     },
     {
-      name: "motivado",
+      name: "Motivado",
       emoji: "💪",
       description: "Motivado",
     },
     {
-      name: "cansado",
+      name: "Cansado",
       emoji: "😴",
       description: "Cansado",
     },
     {
-      name: "ansioso",
+      name: "Ansioso",
       emoji: "😰",
       description: "Ansioso",
     },
@@ -247,27 +247,27 @@ const QuestionsPage = () => {
 
   const locationData = [
     {
-      name: "em casa",
+      name: "Em casa",
       emoji: "🏠",
       description: "Em casa",
     },
     {
-      name: "na rua",
+      name: "Na rua",
       emoji: "🚶",
       description: "Na rua",
     },
     {
-      name: "na academia",
+      name: "Na academia",
       emoji: "🏋️",
       description: "Na academia",
     },
     {
-      name: "no transporte",
+      name: "No transporte",
       emoji: "🚌",
       description: "No transporte",
     },
     {
-      name: "com amigos",
+      name: "Com amigos",
       emoji: "👥",
       description: "Com amigos",
     },
