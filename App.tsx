@@ -273,6 +273,26 @@ const QuestionsPage = () => {
     },
   ];
 
+  const recommendationTypeData = [
+    {
+      name: "Músicas",
+      emoji: "🎵",
+      description: "Músicas",
+    },
+    {
+      name: "Artistas",
+      emoji: "🎤",
+      description: "Artistas",
+    },
+  ];
+
+  const handleRecommendationTypeSelect = (type: string) => {
+    setAnswers((prev) => ({
+      ...prev,
+      recommendationType: type,
+    }));
+  };
+
   const handleLocationSelect = (location: string) => {
     setAnswers((prev) => ({
       ...prev,
@@ -490,6 +510,25 @@ const QuestionsPage = () => {
                   >
                     <span className="mood-emoji">{mood.emoji}</span>
                     <span className="mood-name">{mood.description}</span>
+                  </div>
+                ))}
+              </div>
+            ) : question.id === "recommendationType" ? (
+              <div className="recommendation-type-grid">
+                {recommendationTypeData.map((type) => (
+                  <div
+                    key={type.name}
+                    className={`recommendation-type-card ${
+                      answers.recommendationType === type.name ? "selected" : ""
+                    }`}
+                    onClick={() => handleRecommendationTypeSelect(type.name)}
+                  >
+                    <span className="recommendation-type-emoji">
+                      {type.emoji}
+                    </span>
+                    <span className="recommendation-type-name">
+                      {type.description}
+                    </span>
                   </div>
                 ))}
               </div>
