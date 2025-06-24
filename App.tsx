@@ -338,7 +338,7 @@ const RecommendationPage = () => {
 
       {recommendations.tracks && (
         <div>
-          <h2 className="text-xl font-semibold mb-4">Recommended Tracks</h2>
+          <h2 className="text-recommended">Recommended Tracks</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {recommendations.tracks.map((track: any) => (
               <div key={track.id} className="track-card">
@@ -380,7 +380,7 @@ const RecommendationPage = () => {
 
       {recommendations.artists && (
         <div className="mt-8">
-          <h2 className="text-xl font-semibold mb-4">Recommended Artists</h2>
+          <h2 className="text-recommended">Recommended Artists</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {recommendations.artists.map((artist: any) => (
               <div key={artist.id} className="artist-card">

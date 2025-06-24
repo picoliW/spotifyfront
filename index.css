@@ -10,7 +10,7 @@ body {
     Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #f3f4f6;
+  background-color: #202020;
   color: #333;
   line-height: 1.6;
 }
@@ -218,7 +218,14 @@ body {
   }
 }
 
-.track-card,
+.track-card{
+  background-color: white;
+  padding: 2rem;
+  margin: 2rem;
+  gap: 1rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
 .artist-card {
   background-color: white;
   padding: 1rem;
@@ -411,10 +418,16 @@ audio {
   margin: 0 auto;
 }
 
+.text-recommended{
+  color:white;
+  margin: 0 auto;
+  padding-bottom: 16px;
+}
+
 /* Page header */
 .text-2xl.font-bold.mb-6 {
   font-size: 2rem;
-  color: #191414; /* Spotify black */
+  color: white; /* Spotify black */
   text-align: center;
   margin-bottom: 2.5rem;
   position: relative;
@@ -479,16 +492,6 @@ audio {
   gap: 0.75rem;
 }
 
-.flex.items-center {
-  background: #f8fafc;
-  padding: 0.75rem;
-  border-radius: 8px;
-  transition: all 0.2s;
-}
-
-.flex.items-center:hover {
-  background: #f1f5f9;
-}
 
 .h-4.w-4.text-green-600.focus:ring-green-500.border-gray-300 {
   width: 1.25rem;
@@ -604,7 +607,8 @@ audio {
   display: flex;
   align-items: flex-start;
   gap: 1rem;
-  padding: 1rem;
+  padding: 2rem;
+  margin: 2rem;
   background-color: white;
   border-radius: 0.5rem;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
