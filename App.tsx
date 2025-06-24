@@ -136,8 +136,60 @@ const QuestionsPage = () => {
   const [error, setError] = useState<string | null>(null);
   const navigate = useNavigate();
 
+  const genreData = [
+    {
+      name: "brazil",
+      image:
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Flag_of_Brazil.svg/1200px-Flag_of_Brazil.svg.png",
+    },
+    {
+      name: "rock",
+      image:
+        "https://img.freepik.com/vetores-premium/rock-n-roll-mao_43623-110.jpg?w=360",
+    },
+    {
+      name: "anime",
+      image:
+        "https://static0.gamerantimages.com/wordpress/wp-content/uploads/2022/03/Featured---Generic-Shonen-Anime-that-are-Good.jpg",
+    },
+    {
+      name: "ambient",
+      image:
+        "https://treesforall.nl/app/uploads/2022/03/Bos-Nederland-Epe-e1719389547661-0x1400-c-default.webp",
+    },
+    { name: "funk", image: "https://img.vagalume.fm/1470154922349875/bg" },
+    {
+      name: "chill",
+      image:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSvkfBZW6N3TL1qBaphNR_FtYgDY4ydoK713g&s",
+    },
+    {
+      name: "k-pop",
+      image:
+        "https://s1.static.brasilescola.uol.com.br/be/2022/11/1-bandeira-da-coreia-do-sul.jpg",
+    },
+    {
+      name: "indie",
+      image:
+        "https://images.squarespace-cdn.com/content/v1/5c292bfdc258b4b91b8021a5/1587833888867-28W7VRQBVPEGUPAQWP24/LostIndieClassicsVol1.2.jpg",
+    },
+    {
+      name: "pop",
+      image: "https://i.scdn.co/image/ab67616d0000b2730325b8604725202da6cbbf93",
+    },
+    {
+      name: "hip-hop",
+      image:
+        "https://img.freepik.com/vetores-premium/ilustracao-vetorial-de-hip-hop-t-shirt-ou-arte-de-parede-legal-em-estilo-graffiti_675911-519.jpg?semt=ais_hybrid&w=740",
+    },
+    {
+      name: "sertanejo",
+      image:
+        "https://violaobrasil.com.br/wp-content/uploads/2024/11/O-violao-no-sertanejo-1.jpg",
+    },
+  ];
+
   useEffect(() => {
-    // Verifica se há tokens na URL (vindo do redirecionamento)
     const urlParams = new URLSearchParams(window.location.search);
     const accessToken = urlParams.get("access_token");
     const refreshToken = urlParams.get("refresh_token");
@@ -176,6 +228,20 @@ const QuestionsPage = () => {
 
     fetchQuestions();
   }, [navigate]);
+
+  const handleGenreSelect = (genre: string) => {
+    setAnswers((prev) => {
+      const currentGenres = prev.favoriteGenres || [];
+      const newGenres = currentGenres.includes(genre)
+        ? currentGenres.filter((g) => g !== genre)
+        : [...currentGenres, genre];
+
+      return {
+        ...prev,
+        favoriteGenres: newGenres,
+      };
+    });
+  };
 
   const handleAnswerChange = (questionId: string, value: any) => {
     setAnswers((prev) => ({
@@ -240,7 +306,9 @@ const QuestionsPage = () => {
 
   return (
     <div className="container mx-auto px-4 py-8">
-      <h1 className="text-2xl font-bold mb-6">Preference Questions</h1>
+      <h1 className="text-2xl font-bold mb-6 text-white">
+        Preference Questions
+      </h1>
       <form onSubmit={handleSubmit} className="space-y-6">
         {questions.map((question) => (
           <div key={question.id} className="bg-white p-4 rounded shadow">
@@ -248,7 +316,28 @@ const QuestionsPage = () => {
               {question.question}
             </label>
 
-            {question.type === "number" ? (
+            {question.id === "favoriteGenres" ? (
+              <div className="genre-grid">
+                {genreData.map((genre) => (
+                  <div
+                    key={genre.name}
+                    className={`genre-card ${
+                      answers.favoriteGenres?.includes(genre.name)
+                        ? "selected"
+                        : ""
+                    }`}
+                    onClick={() => handleGenreSelect(genre.name)}
+                  >
+                    <img
+                      src={genre.image}
+                      alt={genre.name}
+                      className="genre-image"
+                    />
+                    <span className="genre-name">{genre.name}</span>
+                  </div>
+                ))}
+              </div>
+            ) : question.type === "number" ? (
               <input
                 type="number"
                 onChange={(e) =>
@@ -264,21 +353,9 @@ const QuestionsPage = () => {
                     <input
                       id={`${question.id}-${option}`}
                       name={question.id}
-                      type={
-                        question.id === "favoriteGenres" ? "checkbox" : "radio"
-                      }
+                      type="radio"
                       value={option}
-                      onChange={() => {
-                        if (question.id === "favoriteGenres") {
-                          const current = answers[question.id] || [];
-                          const newValue = current.includes(option)
-                            ? current.filter((item: string) => item !== option)
-                            : [...current, option];
-                          handleAnswerChange(question.id, newValue);
-                        } else {
-                          handleAnswerChange(question.id, option);
-                        }
-                      }}
+                      onChange={() => handleAnswerChange(question.id, option)}
                       className="h-4 w-4 text-green-600 focus:ring-green-500 border-gray-300"
                     />
                     <label
