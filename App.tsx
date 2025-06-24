@@ -248,7 +248,7 @@ const QuestionsPage = () => {
   const handleMoodSelect = (mood: string) => {
     setAnswers((prev) => ({
       ...prev,
-      currentMood: mood,
+      mood: mood,
     }));
   };
 
@@ -432,7 +432,7 @@ const QuestionsPage = () => {
                   <div
                     key={mood.name}
                     className={`mood-card ${
-                      answers.currentMood === mood.name ? "selected" : ""
+                      answers.mood === mood.name ? "selected" : ""
                     }`}
                     onClick={() => handleMoodSelect(mood.name)}
                   >
