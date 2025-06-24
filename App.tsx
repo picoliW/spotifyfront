@@ -217,6 +217,46 @@ const QuestionsPage = () => {
     },
   ];
 
+  const moodData = [
+    {
+      name: "feliz",
+      emoji: "😊",
+      description: "Feliz",
+      color: "bg-yellow-100 border-yellow-400",
+    },
+    {
+      name: "triste",
+      emoji: "😢",
+      description: "Triste",
+      color: "bg-blue-100 border-blue-400",
+    },
+    {
+      name: "motivado",
+      emoji: "💪",
+      description: "Motivado",
+      color: "bg-green-100 border-green-400",
+    },
+    {
+      name: "cansado",
+      emoji: "😴",
+      description: "Cansado",
+      color: "bg-gray-100 border-gray-400",
+    },
+    {
+      name: "ansioso",
+      emoji: "😰",
+      description: "Ansioso",
+      color: "bg-red-100 border-red-400",
+    },
+  ];
+
+  const handleMoodSelect = (mood: string) => {
+    setAnswers((prev) => ({
+      ...prev,
+      currentMood: mood,
+    }));
+  };
+
   const handleActivitySelect = (activity: string) => {
     setAnswers((prev) => ({
       ...prev,
@@ -388,6 +428,21 @@ const QuestionsPage = () => {
                     <span className="activity-name">
                       {activity.description}
                     </span>
+                  </div>
+                ))}
+              </div>
+            ) : question.id === "currentMood" ? (
+              <div className="mood-grid">
+                {moodData.map((mood) => (
+                  <div
+                    key={mood.name}
+                    className={`mood-card ${mood.color} ${
+                      answers.currentMood === mood.name ? "selected" : ""
+                    }`}
+                    onClick={() => handleMoodSelect(mood.name)}
+                  >
+                    <span className="mood-emoji">{mood.emoji}</span>
+                    <span className="mood-name">{mood.description}</span>
                   </div>
                 ))}
               </div>
