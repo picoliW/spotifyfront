@@ -245,6 +245,41 @@ const QuestionsPage = () => {
     },
   ];
 
+  const locationData = [
+    {
+      name: "em casa",
+      emoji: "🏠",
+      description: "Em casa",
+    },
+    {
+      name: "na rua",
+      emoji: "🚶",
+      description: "Na rua",
+    },
+    {
+      name: "na academia",
+      emoji: "🏋️",
+      description: "Na academia",
+    },
+    {
+      name: "no transporte",
+      emoji: "🚌",
+      description: "No transporte",
+    },
+    {
+      name: "com amigos",
+      emoji: "👥",
+      description: "Com amigos",
+    },
+  ];
+
+  const handleLocationSelect = (location: string) => {
+    setAnswers((prev) => ({
+      ...prev,
+      environment: location,
+    }));
+  };
+
   const handleMoodSelect = (mood: string) => {
     setAnswers((prev) => ({
       ...prev,
@@ -422,6 +457,23 @@ const QuestionsPage = () => {
                     <span className="activity-emoji">{activity.emoji}</span>
                     <span className="activity-name">
                       {activity.description}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            ) : question.id === "environment" ? (
+              <div className="location-grid">
+                {locationData.map((location) => (
+                  <div
+                    key={location.name}
+                    className={`location-card ${
+                      answers.environment === location.name ? "selected" : ""
+                    }`}
+                    onClick={() => handleLocationSelect(location.name)}
+                  >
+                    <span className="location-emoji">{location.emoji}</span>
+                    <span className="location-name">
+                      {location.description}
                     </span>
                   </div>
                 ))}

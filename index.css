@@ -813,3 +813,47 @@ audio {
   background-color: #ffcccc;
   border-color: #ff3333;
 }
+/* Estilos para os cards de localização */
+.location-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.location-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  border-radius: 8px;
+  background-color: #f8f9fa;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+  text-align: center;
+}
+
+.location-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  background-color: #e9ecef;
+}
+
+.location-card.selected {
+  border-color: #1db954;
+  background-color: #e6f7ed;
+  box-shadow: 0 0 0 3px rgba(29, 185, 84, 0.2);
+}
+
+.location-emoji {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.location-name {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #333;
+}
