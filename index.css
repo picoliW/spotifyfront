@@ -574,17 +574,60 @@ audio {
   }
 }
 
-/* Adicione ao seu arquivo CSS */
-.album-image {
-  max-height: 200px;
-  object-fit: cover;
-  margin-bottom: 1rem;
-}
-
+/* Estilos para os cards de música */
 .track-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1rem;
+  background-color: white;
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
   transition: transform 0.2s;
 }
 
-.track-card:hover {
-  transform: translateY(-5px);
+.track-image {
+  width: 80px;
+  height: 80px;
+  border-radius: 4px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.track-content {
+  flex: 1;
+  min-width: 0;
+}
+
+/* Estilos para os cards de artista */
+.artist-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1rem;
+  background-color: white;
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.artist-image {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.artist-content {
+  flex: 1;
+  min-width: 0;
+}
+
+/* Ajustes responsivos */
+@media (max-width: 640px) {
+  .track-image,
+  .artist-image {
+    width: 60px;
+    height: 60px;
+  }
 }

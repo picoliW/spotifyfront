@@ -341,36 +341,37 @@ const RecommendationPage = () => {
           <h2 className="text-xl font-semibold mb-4">Recommended Tracks</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {recommendations.tracks.map((track: any) => (
-              <div key={track.id} className="bg-white p-4 rounded shadow">
-                {/* Adicione a imagem do álbum */}
+              <div key={track.id} className="track-card">
                 {track.album_image && (
-                  <div className="mb-3">
-                    <img
-                      src={track.album_image}
-                      alt={`Capa do álbum ${track.album}`}
-                      className="w-full h-auto rounded"
-                    />
-                  </div>
+                  <img
+                    src={track.album_image}
+                    alt={`Capa do álbum ${track.album}`}
+                    className="track-image"
+                  />
                 )}
-                <h3 className="font-medium">{track.name}</h3>
-                <p className="text-gray-600 text-sm">
-                  {track.artists.join(", ")}
-                </p>
-                <p className="text-gray-500 text-xs mt-1">{track.album}</p>
-                {track.preview_url && (
-                  <audio controls className="w-full mt-2">
-                    <source src={track.preview_url} type="audio/mpeg" />
-                    Your browser does not support the audio element.
-                  </audio>
-                )}
-                <a
-                  href={track.external_url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-block mt-2 text-sm text-green-600 hover:text-green-800"
-                >
-                  Open in Spotify
-                </a>
+                <div className="track-content">
+                  <h3 className="font-medium truncate">{track.name}</h3>
+                  <p className="text-gray-600 text-sm truncate">
+                    {track.artists.join(", ")}
+                  </p>
+                  <p className="text-gray-500 text-xs mt-1 truncate">
+                    {track.album}
+                  </p>
+                  {track.preview_url && (
+                    <audio controls className="w-full mt-2">
+                      <source src={track.preview_url} type="audio/mpeg" />
+                      Your browser does not support the audio element.
+                    </audio>
+                  )}
+                  <a
+                    href={track.external_url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-block mt-2 text-sm text-green-600 hover:text-green-800"
+                  >
+                    Open in Spotify
+                  </a>
+                </div>
               </div>
             ))}
           </div>
@@ -382,28 +383,28 @@ const RecommendationPage = () => {
           <h2 className="text-xl font-semibold mb-4">Recommended Artists</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {recommendations.artists.map((artist: any) => (
-              <div key={artist.id} className="bg-white p-4 rounded shadow">
+              <div key={artist.id} className="artist-card">
                 {artist.image && (
-                  <div className="mb-3">
-                    <img
-                      src={artist.image}
-                      alt={`Imagem de ${artist.name}`}
-                      className="w-full h-auto rounded-full"
-                    />
-                  </div>
+                  <img
+                    src={artist.image}
+                    alt={`Imagem de ${artist.name}`}
+                    className="artist-image"
+                  />
                 )}
-                <h3 className="font-medium">{artist.name}</h3>
-                <p className="text-gray-600 text-sm">
-                  Genres: {artist.genres.slice(0, 3).join(", ")}
-                </p>
-                <a
-                  href={artist.external_url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-block mt-2 text-sm text-green-600 hover:text-green-800"
-                >
-                  Open in Spotify
-                </a>
+                <div className="artist-content">
+                  <h3 className="font-medium truncate">{artist.name}</h3>
+                  <p className="text-gray-600 text-sm truncate">
+                    Genres: {artist.genres.slice(0, 3).join(", ")}
+                  </p>
+                  <a
+                    href={artist.external_url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-block mt-2 text-sm text-green-600 hover:text-green-800"
+                  >
+                    Open in Spotify
+                  </a>
+                </div>
               </div>
             ))}
           </div>
