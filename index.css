@@ -729,3 +729,87 @@ audio {
   font-weight: 500;
   color: #333;
 }
+/* Estilos para os cards de humor/emoção */
+.mood-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.mood-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  border-radius: 8px;
+  background-color: #f8f9fa;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+  text-align: center;
+}
+
+.mood-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.mood-card.selected {
+  border-color: #1db954;
+  background-color: #e6f7ed;
+  box-shadow: 0 0 0 3px rgba(29, 185, 84, 0.2);
+}
+
+.mood-emoji {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.mood-name {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #333;
+}
+
+/* Estilo específico para cada humor */
+.mood-card[data-mood="feliz"] {
+  background-color: #fff9e6;
+}
+.mood-card[data-mood="feliz"].selected {
+  background-color: #fff3cc;
+  border-color: #ffcc00;
+}
+
+.mood-card[data-mood="triste"] {
+  background-color: #e6f3ff;
+}
+.mood-card[data-mood="triste"].selected {
+  background-color: #cce6ff;
+  border-color: #3399ff;
+}
+
+.mood-card[data-mood="motivado"] {
+  background-color: #e6ffe6;
+}
+.mood-card[data-mood="motivado"].selected {
+  background-color: #ccffcc;
+  border-color: #00cc00;
+}
+
+.mood-card[data-mood="cansado"] {
+  background-color: #f0f0f0;
+}
+.mood-card[data-mood="cansado"].selected {
+  background-color: #e0e0e0;
+  border-color: #999999;
+}
+
+.mood-card[data-mood="ansioso"] {
+  background-color: #ffe6e6;
+}
+.mood-card[data-mood="ansioso"].selected {
+  background-color: #ffcccc;
+  border-color: #ff3333;
+}
